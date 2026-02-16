@@ -34,6 +34,16 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <style>
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+        }
+
         body {
             padding: 0%;
             margin: 0%;
@@ -93,7 +103,7 @@
         .nav-item a::after {
             content: "";
             height: 3px;
-            background: linear-gradient(to right, #DF1761, #fb923c);
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
             display: block;
             width: 0;
             transition: all 0.4s ease-in-out;
@@ -106,7 +116,7 @@
         }
 
         .nav-item a.active {
-            color: #fb923c !important;
+            color: var(--accent-color) !important;
             transform: scale(1.05);
         }
 
@@ -342,7 +352,7 @@
             object-fit: cover;
             border: 0.5vmin solid rgb(255, 255, 255);
             border-radius: 50%;
-            
+
         }
 
         .firstring {
@@ -371,6 +381,7 @@
             from {
                 transform: rotate(0deg);
             }
+
             to {
                 transform: rotate(360deg);
             }
@@ -485,7 +496,7 @@
         }
 
         .qualification-span {
-            color: #DF1761;
+            color: var(--primary-color);
             font-weight: 700;
         }
 
@@ -494,15 +505,15 @@
             margin-top: 2rem;
             padding: 30px 0;
             background: rgba(255, 255, 255, 0.05);
-            border: 2px solid #DF1761;
+            border: 2px solid var(--primary-color);
             border-radius: 15px;
             overflow: hidden;
             position: relative;
         }
 
         .tech-icons-box:hover {
-            box-shadow: 0 0 20px rgba(223, 23, 97, 0.2);
-            border-color: #fb923c;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+            border-color: var(--secondary-color);
         }
 
         .tech-icons-carousel {
@@ -538,7 +549,7 @@
         }
 
         .tech-icon-item i {
-            color: #DF1761;
+            color: var(--primary-color);
         }
 
         .tech-icon-item span {
@@ -555,7 +566,7 @@
         }
 
         .tech-icon-item:hover i {
-            color: #fb923c;
+            color: var(--accent-color);
         }
 
         .tech-icon-item:hover span {
@@ -815,7 +826,7 @@
         }
 
         .project-card:hover .project-title {
-            color: #fb923c;
+            color: var(--accent-color);
             transform: translateY(-2px);
         }
 
@@ -831,9 +842,9 @@
             justify-content: center;
             gap: 0.5rem;
             padding: 10px 20px;
-            background: linear-gradient(135deg, rgba(223, 23, 97, 0.2), rgba(251, 146, 60, 0.2));
-            color: #fb923c;
-            border: 1px solid rgba(223, 23, 97, 0.3);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+            color: var(--accent-color);
+            border: 1px solid rgba(99, 102, 241, 0.3);
             border-radius: 50px;
             text-decoration: none !important;
             font-weight: 600;
@@ -850,7 +861,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #DF1761, #fb923c);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             transition: left 0.4s;
             z-index: -1;
         }
@@ -861,8 +872,8 @@
 
         .visit-btn:hover {
             color: white;
-            border-color: #DF1761;
-            box-shadow: 0 8px 25px rgba(223, 23, 97, 0.4);
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
             transform: translateY(-2px);
         }
 
@@ -899,24 +910,9 @@
             background: #ffffff;
             position: relative;
             color: #1e293b;
-            padding: 100px 0;
+            padding: 80px 0;
             overflow: hidden;
             border-top: 1px solid #f1f5f9;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 70% 20%, rgba(244, 114, 182, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 30% 80%, rgba(56, 189, 248, 0.03) 0%, transparent 50%);
-            animation: meshMove 25s ease-in-out infinite alternate-reverse;
-            pointer-events: none;
-            z-index: 0;
         }
 
         .contact-content {
@@ -924,66 +920,228 @@
             z-index: 1;
         }
 
-        .contact-left {
-            text-align: left;
-            padding: 20px;
-        }
-
         .contact-left h2 {
-            font-size: 40px;
+            font-size: 3.5rem;
             font-weight: 700;
-            color: #DF1761;
+            color: #1e293b;
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .contact-subheading {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #64748b;
             margin-bottom: 1.5rem;
-            text-align: center;
+            font-weight: 600;
         }
 
-        .contact-left p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #475569;
+        .contact-tagline {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e293b;
             margin-bottom: 2rem;
+            font-family: 'Inter', sans-serif;
         }
 
-        .contact-info-item {
+        .contact-location {
             display: flex;
             align-items: center;
-            margin-bottom: 1.5rem;
-            transition: transform 0.3s ease;
+            gap: 10px;
+            color: #475569;
+            margin-bottom: 1rem;
+            font-size: 1rem;
         }
 
-        .contact-info-item:hover {
-            transform: translateX(10px);
+        .contact-opportunity {
+            color: #475569;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
         }
 
-        .contact-info-item i {
-            font-size: 1.5rem;
-            width: 50px;
-            height: 50px;
-            background: #f8fafc;
+        .social-icons-container {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none !important;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.1);
+            filter: brightness(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-pic-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+        }
+
+        /* Footer Styles */
+        #footer {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+
+        #footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 300%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 25%),
+                radial-gradient(circle at 60% 70%, rgba(139, 92, 246, 0.12) 0%, transparent 25%),
+                radial-gradient(circle at 80% 30%, rgba(236, 72, 153, 0.1) 0%, transparent 25%);
+            animation: footerFlow 20s linear infinite;
+        }
+
+        #footer::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 40% 40%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(236, 72, 153, 0.06) 0%, transparent 40%);
+            animation: footerPulse 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes footerFlow {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(33.33%); }
+        }
+
+        @keyframes footerPulse {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.05); }
+        }
+
+        .footer-bottom {
+            background-color: #ffffff;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .made-with {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .theme-by {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .theme-by a {
+            color: #4f46e5;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        /* Floating Button */
+        #floatingAction {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #581c87;
+            color: white;
+            border: none;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
-            color: #fb923c;
-            border: 1px solid #e2e8f0;
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 10px 25px rgba(88, 28, 135, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        #floatingAction:hover {
+            transform: scale(1.1) rotate(-5deg);
+            background-color: #6b21a8;
+        }
+
+        @media (max-width: 991px) {
+            .contact-left h2 {
+                font-size: 2.5rem;
+                text-align: center;
+            }
+
+            .contact-left {
+                text-align: center;
+                margin-bottom: 3rem;
+            }
+
+            .contact-location,
+            .contact-opportunity {
+                justify-content: center;
+            }
+
+            .social-icons-container {
+                justify-content: center;
+            }
+
+            .profile-pic-container {
+                width: 250px;
+                height: 250px;
+            }
+        }
+
+        /* Contact Form Redesign */
+        .contact-form-container {
+            margin-top: 3rem;
+            max-width: 600px;
         }
 
         .contact-form-card {
             background: #ffffff;
-            border-radius: 24px;
-            padding: 40px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .contact form {
-            display: grid;
-            gap: 1.5rem;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f1f5f9;
         }
 
         .form-group {
-            position: relative;
+            margin-bottom: 1.5rem;
             text-align: left;
         }
 
@@ -991,59 +1149,61 @@
             display: block;
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
-            font-weight: 500;
-            color: #64748b;
-            transition: color 0.3s ease;
+            font-weight: 600;
+            color: #475569;
         }
 
-        .inp {
+        .form-input {
             width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1.5px solid #e2e8f0;
             background: #f8fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            padding: 12px 20px;
             color: #1e293b;
             font-size: 1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease;
         }
 
-        .inp:focus {
+        .form-input:focus {
             outline: none;
-            border-color: #fb923c;
-            box-shadow: 0 0 0 4px rgba(251, 146, 60, 0.1);
+            border-color: var(--primary-color);
             background: #ffffff;
+            box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
         }
 
-        .inp::placeholder {
-            color: #94a3b8;
-        }
-
-        textarea.inp {
+        textarea.form-input {
             min-height: 120px;
             resize: vertical;
         }
 
-        .sub-btn {
-            background: linear-gradient(135deg, #fb923c 0%, #f43f5e 100%);
-            color: white;
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
             border: none;
-            border-radius: 12px;
-            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1rem;
+            gap: 10px;
         }
 
-        .sub-btn:hover {
+        .submit-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(244, 63, 94, 0.4);
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
             filter: brightness(1.1);
+        }
+
+        @media (max-width: 991px) {
+            .contact-form-container {
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
 
         /* Timeline Section Styles */
@@ -1085,7 +1245,7 @@
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            border-left: 5px solid #DF1761;
+            border-left: 5px solid var(--primary-color);
             transition: all 0.3s ease;
             position: relative;
             display: flex;
@@ -1095,7 +1255,7 @@
 
         .experience-card:hover {
             transform: translateX(10px);
-            box-shadow: 0 15px 40px rgba(223, 23, 97, 0.15);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.2);
         }
 
         .experience-image {
@@ -1105,7 +1265,7 @@
             overflow: hidden;
             flex-shrink: 0;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            border: 3px solid #DF1761;
+            border: 3px solid var(--primary-color);
         }
 
         .experience-image img {
@@ -1149,13 +1309,13 @@
         }
 
         .experience-company {
-            color: #DF1761;
+            color: var(--primary-color);
             font-size: 1.1rem;
             font-weight: 600;
         }
 
         .experience-year {
-            background: linear-gradient(135deg, #DF1761, #fb923c);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
             padding: 8px 20px;
             border-radius: 50px;
@@ -1187,13 +1347,13 @@
         }
 
         .experience-tech-badge {
-            background: rgba(223, 23, 97, 0.1);
-            color: #DF1761;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-color);
             padding: 6px 15px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
-            border: 1px solid rgba(223, 23, 97, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.2);
         }
 
         @media (max-width: 768px) {
@@ -1228,7 +1388,7 @@
             content: '';
             position: absolute;
             width: 3px;
-            background-color: #DF1761;
+            background-color: var(--primary-color);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -1251,7 +1411,7 @@
             height: 20px;
             right: -10px;
             background-color: #ffffff;
-            border: 4px solid #DF1761;
+            border: 4px solid var(--primary-color);
             top: 50%;
             transform: translateY(-50%);
             border-radius: 50%;
@@ -1290,7 +1450,7 @@
 
         .timeline-content:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(223, 23, 97, 0.1);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.15);
         }
 
         .cert-text {
@@ -1337,7 +1497,7 @@
         .cert-year {
             display: inline-block;
             padding: 5px 15px;
-            background: #DF1761;
+            background: var(--primary-color);
             color: white;
             border-radius: 50px;
             font-size: 0.8rem;
@@ -1351,7 +1511,7 @@
             object-fit: contain;
             border-radius: 10px;
             margin-bottom: 15px;
-            border: 2px solid #DF1761;
+            border: 2px solid var(--primary-color);
             padding: 5px;
             background: white;
         }
@@ -1444,13 +1604,13 @@
             font-weight: 700;
 
             padding-top: 70px;
-            color: #DF1761;
+            color: var(--primary-color);
         }
 
         .hr {
             width: 60%;
             margin: auto;
-            border: 2px solid #DF1761;
+            border: 2px solid var(--primary-color);
             border-radius: 5px;
         }
 
@@ -1472,25 +1632,25 @@
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             transition: all 0.5s ease;
-            border: 5px solid #DF1761;
+            border: 5px solid var(--primary-color);
         }
 
         .about-image-badge {
             position: absolute;
             bottom: -0px;
             right: -10px;
-            width:  190px;
+            width: 190px;
             height: 190px;
             z-index: 999;
             background: white;
-            border: 4px solid #DF1761;
+            border: 4px solid var(--primary-color);
             border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            overflow:hidden;
+            overflow: hidden;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-           
+
             transition: all 0.4s ease;
         }
 
@@ -1505,12 +1665,12 @@
 
         .about-img-container:hover .about-image-badge {
             transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 15px 35px rgba(223, 23, 97, 0.3);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.3);
         }
 
         .about-img-container:hover img {
             transform: scale(1.02);
-            box-shadow: 0 30px 60px rgba(223, 23, 97, 0.3);
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.3);
         }
 
         .about-text-container p {
@@ -1522,7 +1682,7 @@
         }
 
         .about-text-container p span {
-            color: #DF1761;
+            color: var(--primary-color);
             font-weight: 800;
         }
 
@@ -1530,7 +1690,7 @@
             margin-top: 20px;
             font-size: 20px;
             font-weight: 700;
-            color: #DF1761;
+            color: var(--primary-color);
             display: flex;
         }
 
@@ -1565,12 +1725,12 @@
 
             .firstring {
                 height: 60vmin;
-                width:  60vmin;
+                width: 60vmin;
             }
 
             .secondring {
                 height: 55vmin;
-                width:  55vmin;
+                width: 55vmin;
             }
 
             .developerimg {
@@ -1899,7 +2059,7 @@
         }
 
         .modal-close:hover {
-            background: #DF1761;
+            background: var(--primary-color);
             transform: rotate(90deg);
         }
 
@@ -1918,7 +2078,7 @@
         .modal-title {
             font-size: 2rem;
             font-weight: 700;
-            color: #DF1761;
+            color: var(--primary-color);
             margin-bottom: 10px;
         }
 
@@ -1957,7 +2117,7 @@
             align-items: center;
             gap: 10px;
             padding: 12px 30px;
-            background: linear-gradient(135deg, #DF1761, #fb923c);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
             border: none;
             border-radius: 50px;
@@ -1970,7 +2130,7 @@
 
         .modal-visit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(223, 23, 97, 0.4);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
             color: white;
         }
 
@@ -2056,7 +2216,7 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #DF1761, #fb923c);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
             border: none;
             border-radius: 50%;
@@ -2066,7 +2226,7 @@
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 999;
-            box-shadow: 0 4px 15px rgba(223, 23, 97, 0.4);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
         }
 
         #backToTop.show {
@@ -2076,7 +2236,92 @@
 
         #backToTop:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(223, 23, 97, 0.6);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+        }
+
+        /* Light Services Section */
+        .service-card-light {
+            background: #ffffff;
+            border: 2px solid rgba(99, 102, 241, 0.15);
+            border-radius: 24px;
+            padding: 40px;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card-light:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.2);
+        }
+
+        .service-number-light {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(99, 102, 241, 0.1);
+            line-height: 1;
+        }
+
+        .service-icon-light {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .service-card-light:hover .service-icon-light {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+        }
+
+        .service-card-light h3 {
+            color: #1e293b;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .service-card-light p {
+            color: #64748b;
+            line-height: 1.8;
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+
+        .tech-stack-line-light {
+            padding-top: 20px;
+            border-top: 2px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .tech-label-light {
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .tech-items-light {
+            color: #475569;
+            font-size: 0.95rem;
+            font-weight: 500;
+            line-height: 1.6;
         }
     </style>
     <link rel="stylesheet" href="https://www.ilcorrieredellacitta.com/wp-content/uploads/2023/06/whatapp-1-fb.png"
@@ -2133,6 +2378,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white fw-bold" href="#About">About </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white fw-bold" href="#Services">Services</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white fw-bold" href="#Education">Education</a>
@@ -2481,97 +2729,158 @@
                 </div>
             </div>
         </section>
-        <section id="Contact" class="contact">
-            <div class="container contact-content">
-                <div class="row align-items-center">
-                    <div class="col-lg-6 mb-5 mb-lg-0">
-                        <div class="contact-left">
-                            <h2>Let's Talk</h2>
-                            <p>I'm excited to take on new projects! Let's collaborate on something amazing. Message me
-                                anytime with your ideas – I'm here to help bring your vision to life. No project is too
-                                big or too small. Let's create something extraordinary together!</p>
 
-                            <div class="contact-info">
-                                <div class="contact-info-item">
-                                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                                    <div>
-                                        <strong>Email</strong><br>
-                                        <small>yogeshpal1309@gmail.com</small>
-                                    </div>
-                                </div>
-
-                                <div class="contact-info-item">
-                                    <i class="fa-solid fa-phone-volume" aria-hidden="true"></i>
-                                    <div>
-                                        <strong>Phone</strong><br>
-                                        <a href="tel:+917817095043" class="text-dark text-decoration-none">+91
-                                            78170-95043&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
-                                    </div>
-                                </div>
-                                <div class="contact-info-item">
-                                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
-                                    <div>
-                                        <strong>Location</strong><br>
-                                        <span>Bareilly, Uttar Pradesh&nbsp;&nbsp;&nbsp;</span>
-                                    </div>
-                                </div>
+        <!-- Services Section -->
+        <section id="Services" class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+            <div class="container">
+                <h2 class="about text-center" style="padding-top: 0; color: var(--primary-color);">Crafting Digital Excellence</h2>
+                <p class="text-center mb-5" style="color: #64748b; font-size: 1.1rem; max-width: 700px; margin: 0 auto 3rem;">Star-Performing Full Stack Solutions That Drive Business Growth</p>
+                
+                <div class="row g-4">
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-card-light">
+                            <div class="service-number-light">01</div>
+                            <div class="service-icon-light">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <h3>Full-Stack Web Solutions</h3>
+                            <p>Enterprise-grade applications built with ASP.NET Core & Spring Boot. Scalable architecture designed for growing businesses with seamless performance.</p>
+                            <div class="tech-stack-line-light">
+                                <span class="tech-label-light">Built with:</span>
+                                <span class="tech-items-light">ASP.NET Core • Spring Boot • Entity Framework • MySQL</span>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-lg-6">
-                        <div class="contact-form-card">
-                            <form name="contact" method="POST" netlify>
-                                <div class="form-group">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" id="name-input" name="name" class="inp"
-                                        placeholder="e.g. John Doe" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="mobile">Phone Number</label>
-                                    <input type="tel" id="mobile" name="mobile" class="inp"
-                                        placeholder="e.g. +91 98765 43210" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" class="inp"
-                                        placeholder="e.g. john@example.com" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">Your Message</label>
-                                    <textarea id="message" name="message" class="inp" placeholder="How can I help you?"
-                                        required></textarea>
-                                </div>
-                                <button type="submit" class="sub-btn w-100">
-                                    Send Message <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-                                </button>
-                            </form>
+                    
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="service-card-light">
+                            <div class="service-number-light">02</div>
+                            <div class="service-icon-light">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <h3>Modern Frontend & Animations</h3>
+                            <p>Stunning React.js interfaces with GSAP-powered animations. Visual excellence that captivates users and elevates brand perception instantly.</p>
+                            <div class="tech-stack-line-light">
+                                <span class="tech-label-light">Built with:</span>
+                                <span class="tech-items-light">React.js • GSAP • AOS • JavaScript ES6+</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="service-card-light">
+                            <div class="service-number-light">03</div>
+                            <div class="service-icon-light">
+                                <i class="fa-solid fa-server"></i>
+                            </div>
+                            <h3>Robust Backend & API Architecture</h3>
+                            <p>High-performance REST APIs with optimized database design. Secure, scalable backend systems that handle millions of requests effortlessly.</p>
+                            <div class="tech-stack-line-light">
+                                <span class="tech-label-light">Built with:</span>
+                                <span class="tech-items-light">REST APIs • MSSQL • MySQL • Postman • JWT Auth</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="service-card-light">
+                            <div class="service-number-light">04</div>
+                            <div class="service-icon-light">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            </div>
+                            <h3>UI/UX & Responsive Design</h3>
+                            <p>Pixel-perfect, mobile-first layouts that work flawlessly across all devices. User-centric design that converts visitors into loyal customers.</p>
+                            <div class="tech-stack-line-light">
+                                <span class="tech-label-light">Built with:</span>
+                                <span class="tech-items-light">Tailwind CSS • Bootstrap 5 • Responsive Grid • Flexbox</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <div class="row m-0">
-            <footer class="bg-black text-white w-100 m-0 p-0 text-center">
-                <div class="container p-4">
-                    <section class="mb-4">
-                        <a href="https://facebook.com" target="_blank" data-mdb-ripple-init
-                            class="btn fs-2 btn-outline btn-floating m-1" href="#!" role="button"><i
-                                class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/the_yogeshpal" target="_blank" data-mdb-ripple-init
-                            class="btn fs-2 btn-outline btn-floating m-1" href="#!" role="button"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/in/pal-yogesh" target="_blank" data-mdb-ripple-init
-                            class="btn fs-2 btn-outline btn-floating m-1" href="#!" role="button"><i
-                                class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/theyogeshpal" target="_blank" data-mdb-ripple-init
-                            class="btn fs-2 btn-outline btn-floating m-1" href="#!" role="button"><i
-                                class="fab fa-github"></i></a>
-                    </section>
-                    <div class="text-center"> © Copyright 2025.</div>
-                    <div class="text-center mt-3"> Designed by Yogesh Pal 😎 </div>
-            </footer>
+
+        <!-- Contact Form Section -->
+        <section id="Contact" class="py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+            <div class="container mt-5">
+                <h2 class="about text-center" style="padding-top: 0;">Get In Touch</h2>
+                <hr class="hr mb-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <form class="contact-form-card" data-aos="fade-up">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Your Name</label>
+                                        <input type="text" name="name" class="form-input" placeholder="Enter your name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Your Email</label>
+                                        <input type="email" name class="form-input" placeholder="Enter your email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" class="form-input" placeholder="Enter subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea class="form-input" placeholder="Enter your message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                Send Message <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       <div id="footer"> 
+         <section class="contact bg-dark">
+            <div class="container contact-content">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="contact-left">
+                            <h2 id="contact-heading" class="text-white">Reach Out to me!</h2>
+
+
+                            <div class="contact-location">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span id="contact-location-text" class="text-light"></span>
+                            </div>
+
+                            <div class="social-icons-container" id="social-icons-container">
+                                <!-- Social icons will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="contact-right">
+                            <div class="profile-pic-container">
+                                <img src="./images/P1119420.JPG" alt="Profile Picture">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="footer-bottom bg-dark">
+            <div class="container">
+                <p class="made-with text-light">Made with ❤️ by Yogesh Pal</p>
+
+            </div>
         </div>
+
+    </div>
+
+        <button id="floatingAction" onclick="scrollToTop()">
+            <i class="fa-solid fa-hand-pointer"></i>
+        </button>
     </div>
 
     <!-- Back to Top Button -->
@@ -2748,6 +3057,29 @@
                 });
             }
 
+            // Render Contact Info
+            if (PORTFOLIO_DATA.contact) {
+                const contact = PORTFOLIO_DATA.contact;
+                const subheading = document.getElementById('contact-subheading');
+                const tagline = document.getElementById('contact-tagline');
+                const locationText = document.getElementById('contact-location-text');
+                const opportunity = document.getElementById('opportunity-status');
+
+                if (subheading) subheading.textContent = contact.subheading;
+                if (tagline) tagline.textContent = contact.tagline;
+                if (locationText) locationText.textContent = contact.location;
+                if (opportunity) opportunity.textContent = contact.opportunityStatus;
+
+                const socialIconsContainer = document.getElementById('social-icons-container');
+                if (socialIconsContainer && contact.socialLinks) {
+                    socialIconsContainer.innerHTML = contact.socialLinks.map(link => `
+                        <a href="${link.url}" target="_blank" class="social-icon" style="background-color: ${link.color}" title="${link.name}">
+                            <i class="${link.icon}"></i>
+                        </a>
+                    `).join('');
+                }
+            }
+
             AOS.refresh();
         }
 
@@ -2869,11 +3201,10 @@
         }
     });
 
-    // Back to Top functionality
-    document.getElementById('backToTop').addEventListener('click', () => {
+    function scrollToTop() {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
-    });
+    }
 </script>

@@ -11,7 +11,19 @@ const PORTFOLIO_DATA = {
         facebook: 'https://facebook.com',
         discord: 'https://discord.com',
         twitter: 'https://x.com',
-        cv: './images/Yogesh-Pal.pdf'
+        cv: './images/Yogesh-Pal.pdf',
+        subheading: 'DISCUSS A PROJECT OR JUST WANT TO SAY HI? MY INBOX IS OPEN FOR ALL.',
+        tagline: '"Software Engineer @SadaPay | building refactornow.dev"',
+        opportunityStatus: 'No',
+        socialLinks: [
+            { name: 'Github', url: 'https://github.com/theyogeshpal', icon: 'fa-brands fa-github', color: '#333' },
+            { name: 'LinkedIn', url: 'https://www.linkedin.com/in/pal-yogesh', icon: 'fa-brands fa-linkedin-in', color: '#0077b5' },
+            { name: 'Email', url: 'mailto:yogeshpal1309@gmail.com', icon: 'fa-solid fa-envelope', color: '#ea4335' },
+            { name: 'Gitlab', url: 'https://gitlab.com', icon: 'fa-brands fa-gitlab', color: '#fca326' },
+            { name: 'Facebook', url: 'https://facebook.com', icon: 'fa-brands fa-facebook-f', color: '#3b5998' },
+            { name: 'Medium', url: 'https://medium.com', icon: 'fa-brands fa-medium', color: '#000' },
+            { name: 'StackOverflow', url: 'https://stackoverflow.com', icon: 'fa-brands fa-stack-overflow', color: '#f48024' }
+        ]
     },
     about: {
         para1: "Hello! I'm Yogesh Pal, a dedicated Full Stack Developer and CSE student with a passion for building high-performance web applications. My expertise spans across the entire development lifecycle, from architecting robust backends using ASP.NET Core and Spring Boot to crafting modern, responsive frontends with React.js, Tailwind CSS, and Bootstrap.",
