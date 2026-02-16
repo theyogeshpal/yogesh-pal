@@ -47,6 +47,7 @@
         html {
             overflow-x: hidden;
             width: 100%;
+            scroll-behavior: smooth;
         }
 
         body::before {
@@ -2047,6 +2048,36 @@
                 height: 250px;
             }
         }
+
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #DF1761, #fb923c);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(223, 23, 97, 0.4);
+        }
+
+        #backToTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #backToTop:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(223, 23, 97, 0.6);
+        }
     </style>
     <link rel="stylesheet" href="https://www.ilcorrieredellacitta.com/wp-content/uploads/2023/06/whatapp-1-fb.png"
         integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
@@ -2543,6 +2574,11 @@
         </div>
     </div>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to Top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <!-- Project Modal -->
     <div id="projectModal" class="project-modal">
         <div class="modal-content-wrapper">
@@ -2822,6 +2858,22 @@
             if (link.getAttribute('href') === `#${current}`) {
                 link.classList.add('active');
             }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        if (window.scrollY > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+
+    // Back to Top functionality
+    document.getElementById('backToTop').addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
     });
 </script>
