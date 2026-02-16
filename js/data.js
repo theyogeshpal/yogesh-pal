@@ -22,6 +22,12 @@ const PORTFOLIO_DATA = {
             'Intermediate From NIOS Board (2025).',
             'High School From CBSE Board (2023).'
         ],
+        experience: [
+            'Working on ASP.NET Core MVC projects',
+            'Developing REST APIs and database management',
+            'Creating responsive web applications',
+            'Awarded Star Performance at Digicoders Technologies'
+        ],
         strengths: [
             'Logical and Analytical ability for new project and application.',
             'Good verbal and presentation skills.',
@@ -40,6 +46,23 @@ const PORTFOLIO_DATA = {
             'Git, GitHub'
         ]
     },
+    experience: [
+        {
+            id: 1,
+            year: "2025 - Present",
+            company: "Digicoders Technologies Pvt. Ltd.",
+            position: "Dot Net Developer",
+            location: "Lucknow, UP",
+            description: "Working on ASP.NET Core MVC projects, developing REST APIs, and creating responsive web applications.",
+            detailedDescription: "As a Dot Net Developer at Digicoders Technologies, I work on developing enterprise-level web applications using ASP.NET Core MVC framework. My responsibilities include designing and implementing RESTful APIs, database management with MSSQL, creating responsive user interfaces with Bootstrap, and collaborating with cross-functional teams to deliver high-quality software solutions. I have successfully delivered multiple projects.",
+            technologies: ["ASP.NET Core", "C#", "MSSQL", "Entity Framework", "Bootstrap"],
+            images: [
+                "./images/Yogesh-Pal-Profile.png",
+                "./images/The-Yogesh-Pal.jpg",
+                "./images/Yogesh-Pal-about.png"
+            ]
+        }
+    ],
     timeline: [
         {
             id: 1,
@@ -73,26 +96,29 @@ const PORTFOLIO_DATA = {
         {
             id: 1,
             title: "AuraPark",
-            category: "Parking Management System (Website + Software)",
+            category: "Parking Management System (Website + Admin + Super Admin )",
             link: "https://aurapark.runasp.net/",
             image: "./images/Screenshot 2026-01-16 134513.png",
-            technologies: "ASP.NET Core, C#, MSSQL, Bootstrap"
+            technologies: "ASP.NET Core, C#, MSSQL, Bootstrap",
+            description: "A comprehensive parking management system with multi-level access control. Features include real-time parking slot monitoring, automated billing, user management, and detailed analytics dashboard for administrators."
         },
         {
             id: 2,
             title: "Syntax Academy",
-            category: "Student Management System (Website + Software)",
+            category: "Student Management System (Website + Admin Panel)",
             link: "https://syntax-academy.runasp.net/",
             image: "./images/syntax-academy.png",
-            technologies: "ASP.NET Core, C#, Entity Framework"
+            technologies: "ASP.NET Core, C#, Entity Framework",
+            description: "Complete student management solution with attendance tracking, grade management, course enrollment, and parent-teacher communication portal. Built with Entity Framework for robust data management."
         },
         {
             id: 3,
             title: "RiskFlight",
-            category: "Library Management System (Software)",
+            category: "Library Management System",
             link: "#",
-            image: "./images/Screenshot 2025-09-10 121537.png",
-            technologies: "ASP.NET Core, C#, MSSQL, ADO.Net"
+            image: "./images/LMS.png",
+            technologies: "ASP.NET Core, C#, MSSQL, ADO.Net",
+            description: "Digital library management system featuring book cataloging, member management, issue/return tracking, fine calculation, and comprehensive reporting. Developed using ADO.NET for optimized database operations."
         },
         {
             id: 4,
@@ -100,7 +126,8 @@ const PORTFOLIO_DATA = {
             category: "Non Government Organization (Website)",
             link: "https://nurture-nest-foundation.netlify.app/",
             image: "./images/nurture-nest.png",
-            technologies: "HTML, CSS, JavaScript"
+            technologies: "HTML, CSS, JavaScript",
+            description: "Responsive NGO website showcasing social initiatives, donation campaigns, volunteer programs, and impact stories. Features include event calendar, gallery, and contact forms for community engagement."
         },
         {
             id: 5,
@@ -108,7 +135,8 @@ const PORTFOLIO_DATA = {
             category: "E-Commerce Website (Website)",
             link: "https://amber-ecommerce.netlify.app/",
             image: "./images/Amber-Archives.png",
-            technologies: "React.js, Tailwind CSS"
+            technologies: "React.js, Tailwind CSS",
+            description: "Modern e-commerce platform with product catalog, shopping cart, wishlist functionality, and responsive design. Built with React.js for dynamic user experience and Tailwind CSS for sleek styling."
         },
         {
             id: 6,
@@ -116,7 +144,8 @@ const PORTFOLIO_DATA = {
             category: "Personal Portfolio (Website)",
             link: "#",
             image: "./images/Yogesh-pal.png",
-            technologies: "HTML, CSS, JS, Bootstrap"
+            technologies: "HTML, CSS, JS, Bootstrap",
+            description: "Professional portfolio website showcasing projects, skills, certifications, and achievements. Features smooth animations, responsive design, and interactive elements to highlight technical expertise."
         },
         {
             id: 7,
@@ -124,7 +153,8 @@ const PORTFOLIO_DATA = {
             category: "Built Using GSAP (Webpage)",
             link: "https://fanta-yogesh.netlify.app/",
             image: "./images/fanta.png",
-            technologies: "GSAP, HTML, CSS"
+            technologies: "GSAP, HTML, CSS",
+            description: "Creative animated webpage demonstrating advanced GSAP animation techniques. Features scroll-triggered animations, smooth transitions, and interactive elements for an engaging user experience."
         },
         {
             id: 8,
@@ -132,7 +162,8 @@ const PORTFOLIO_DATA = {
             category: "Trip Planner (Website)",
             link: "#",
             image: "./images/travel-website.png",
-            technologies: "HTML, CSS, JavaScript"
+            technologies: "HTML, CSS, JavaScript",
+            description: "Travel planning website featuring destination guides, itinerary builder, budget calculator, and booking information. Designed with responsive layouts for seamless browsing across all devices."
         },
         {
             id: 9,
@@ -140,7 +171,8 @@ const PORTFOLIO_DATA = {
             category: "Built Using Javascript (Mini Project)",
             link: "https://theyogeshpal.github.io/calculator-yogesh-pal/",
             image: "./images/calculator.png",
-            technologies: "JavaScript, HTML, CSS"
+            technologies: "JavaScript, HTML, CSS",
+            description: "Functional calculator application with basic arithmetic operations, clear functionality, and keyboard support. Built with vanilla JavaScript to demonstrate core programming concepts."
         }
     ]
 };

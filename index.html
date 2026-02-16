@@ -1021,6 +1021,164 @@
             position: relative;
         }
 
+        /* Experience Section Styles */
+        .experience-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            position: relative;
+        }
+
+        .experience-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(223, 23, 97, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(102, 126, 234, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .experience-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .experience-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #DF1761;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .experience-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 40px rgba(223, 23, 97, 0.15);
+        }
+
+        .experience-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 15px;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 3px solid #DF1761;
+        }
+
+        .experience-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-card:hover .experience-image img {
+            transform: scale(1.1);
+        }
+
+        .experience-content {
+            flex: 1;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .experience-title {
+            flex: 1;
+        }
+
+        .experience-title h3 {
+            color: #1e293b;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
+            color: #DF1761;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .experience-year {
+            background: linear-gradient(135deg, #DF1761, #fb923c);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .experience-location {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .experience-description {
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .experience-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .experience-tech-badge {
+            background: rgba(223, 23, 97, 0.1);
+            color: #DF1761;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(223, 23, 97, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .experience-card {
+                padding: 20px;
+                flex-direction: column;
+            }
+
+            .experience-image {
+                width: 100%;
+                height: 200px;
+            }
+
+            .experience-title h3 {
+                font-size: 1.2rem;
+            }
+        }
+
         .timeline-container {
             position: relative;
             max-width: 1200px;
@@ -1581,6 +1739,210 @@
         }
 
         @media (max-width: 321px) {}
+
+        /* Project Modal Styles */
+        .project-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .project-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content-wrapper {
+            background: #ffffff;
+            border-radius: 20px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.1);
+            border: none;
+            color: #1e293b;
+            font-size: 2rem;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: #DF1761;
+            transform: rotate(90deg);
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .modal-body {
+            padding: 30px;
+            color: #1e293b;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #DF1761;
+            margin-bottom: 10px;
+        }
+
+        .modal-category {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .modal-description {
+            color: #475569;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+        }
+
+        .modal-tech-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .modal-tech-badge {
+            padding: 8px 16px;
+            background: rgba(96, 165, 250, 0.2);
+            color: #60a5fa;
+            border: 1px solid rgba(96, 165, 250, 0.4);
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .modal-visit-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #DF1761, #fb923c);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .modal-visit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(223, 23, 97, 0.4);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .modal-image {
+                height: 250px;
+            }
+            .modal-body {
+                padding: 20px;
+            }
+            .modal-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Experience Modal Styles */
+        .experience-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .experience-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .exp-modal-content {
+            background: #ffffff;
+            border-radius: 20px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        .exp-modal-images {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            padding: 20px;
+            background: #f8fafc;
+        }
+
+        .exp-modal-images img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .exp-modal-images img:hover {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .exp-modal-images {
+                grid-template-columns: 1fr;
+            }
+            .exp-modal-images img {
+                height: 250px;
+            }
+        }
     </style>
     <link rel="stylesheet" href="https://www.ilcorrieredellacitta.com/wp-content/uploads/2023/06/whatapp-1-fb.png"
         integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
@@ -1617,6 +1979,7 @@
 </head>
 
 <body>
+
     <div class="container-fluid p-0">
         <div class="row head m-0">
             <div class="col-sm-12 navbr m-0">
@@ -1629,12 +1992,15 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav dropmenu text-center mx-auto w-50 justify-content-around">
+                            <ul class="navbar-nav dropmenu text-center mx-auto w-75 justify-content-around">
                                 <li class="nav-item">
                                     <a class="nav-link text-white fw-bold fs-4" href="#Home">Home</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white fw-bold fs-4" href="#About">About </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white fw-bold fs-4" href="#Experience">Experience</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white fw-bold fs-4" href="#Project">Projects</a>
@@ -1702,7 +2068,7 @@
                 </div>
             </div>
         </section>
-        <section id="About" class="overflow-hidden">
+        <section id="About" class="overflow-hidden pt-sm-3">
             <div class="container">
                 <h2 class="about">About Me</h2>
                 <hr class="hr">
@@ -1873,6 +2239,17 @@
             </div>
         </section>
 
+        <!-- Experience Section -->
+        <section id="Experience" class="experience-section">
+            <div class="container">
+                <h1 class="about text-center">Work Experience</h1>
+                <hr class="hr mb-5">
+                <div class="experience-container" id="experience-container">
+                    <!-- Experience items will be loaded here -->
+                </div>
+            </div>
+        </section>
+
         <!-- New Certifications Timeline Section -->
         <section class="cert-timeline">
             <div class="container">
@@ -1993,6 +2370,39 @@
             </footer>
         </div>
     </div>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="project-modal">
+        <div class="modal-content-wrapper">
+            <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div class="modal-body">
+                <h2 id="modalTitle" class="modal-title"></h2>
+                <p id="modalCategory" class="modal-category"></p>
+                <p id="modalDescription" class="modal-description"></p>
+                <div id="modalTechBadges" class="modal-tech-badges"></div>
+                <a id="modalVisitBtn" href="#" target="_blank" class="modal-visit-btn">
+                    Visit Project <i class="fa-solid fa-up-right-from-square"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Modal -->
+    <div id="experienceModal" class="experience-modal">
+        <div class="exp-modal-content">
+            <button class="modal-close" onclick="closeExperienceModal()">&times;</button>
+            <div id="expModalImages" class="exp-modal-images"></div>
+            <div class="modal-body">
+                <h2 id="expModalPosition" class="modal-title"></h2>
+                <p id="expModalCompany" class="modal-category"></p>
+                <p><i class="fa-solid fa-location-dot" style="color: #DF1761;"></i> <span id="expModalLocation"></span> | <i class="fa-solid fa-calendar" style="color: #DF1761;"></i> <span id="expModalYear"></span></p>
+                <p id="expModalDescription" class="modal-description"></p>
+                <div id="expModalTechBadges" class="modal-tech-badges"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="./js/data.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
@@ -2018,7 +2428,7 @@
                 const techBadges = techs.map(tech => `<span class="tech-badge">${tech.trim()}</span>`).join('');
 
                 projectsGrid.innerHTML += `
-                    <div class="project-card" data-aos="fade-up">
+                    <div class="project-card" data-aos="fade-up" onclick="openProjectModal(${project.id})" style="cursor: pointer;">
                         <div class="project-image-container">
                             <img src="${project.image}" alt="${project.title}">
                             <div class="project-overlay"><i class="fa-solid fa-expand text-white fs-2"></i></div>
@@ -2029,7 +2439,7 @@
                                 <p class="project-category">${project.category}</p>
                                 <div class="tech-badges">${techBadges}</div>
                             </div>
-                            <a href="${project.link}" target="_blank" class="visit-btn">Visit Project <i class="fa-solid fa-up-right-from-square"></i></a>
+                            <a href="${project.link}" target="_blank" class="visit-btn" onclick="event.stopPropagation()">Visit Project <i class="fa-solid fa-up-right-from-square"></i></a>
                         </div>
                     </div>
                 `;
@@ -2058,6 +2468,33 @@
             // Initial render of first batch of projects
             loadMoreProjects();
 
+            // Render Experience
+            const experienceContainer = document.getElementById('experience-container');
+            if (experienceContainer && PORTFOLIO_DATA.experience) {
+                PORTFOLIO_DATA.experience.forEach(exp => {
+                    const techBadges = exp.technologies.map(tech => `<span class="experience-tech-badge">${tech}</span>`).join('');
+                    experienceContainer.innerHTML += `
+                        <div class="experience-card" data-aos="fade-up" onclick="openExperienceModal(${exp.id})" style="cursor: pointer;">
+                            <div class="experience-image">
+                                <img src="${exp.images[0]}" alt="${exp.company}">
+                            </div>
+                            <div class="experience-content">
+                                <div class="experience-header">
+                                    <div class="experience-title">
+                                        <h3>${exp.position}</h3>
+                                        <div class="experience-company">${exp.company}</div>
+                                    </div>
+                                    <span class="experience-year">${exp.year}</span>
+                                </div>
+                                <div class="experience-location"><i class="fa-solid fa-location-dot"></i> ${exp.location}</div>
+                                <p class="experience-description">${exp.description}</p>
+                                <div class="experience-tech">${techBadges}</div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
             // Render Timeline
             const timelineContainer = document.getElementById('timeline-container');
             if (timelineContainer && PORTFOLIO_DATA.timeline) {
@@ -2082,6 +2519,81 @@
 
         // Call initializer
         loadPortfolioContent();
+
+        // Project Modal Functions
+        function openProjectModal(projectId) {
+            const project = PORTFOLIO_DATA.projects.find(p => p.id === projectId);
+            if (!project) return;
+
+            document.getElementById('modalImage').src = project.image;
+            document.getElementById('modalImage').alt = project.title;
+            document.getElementById('modalTitle').textContent = project.title;
+            document.getElementById('modalCategory').textContent = project.category;
+            document.getElementById('modalDescription').textContent = project.description;
+            document.getElementById('modalVisitBtn').href = project.link;
+
+            const techBadges = project.technologies.split(',').map(tech => 
+                `<span class="modal-tech-badge">${tech.trim()}</span>`
+            ).join('');
+            document.getElementById('modalTechBadges').innerHTML = techBadges;
+
+            document.getElementById('projectModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProjectModal() {
+            document.getElementById('projectModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        document.getElementById('projectModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProjectModal();
+            }
+        });
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProjectModal();
+                closeExperienceModal();
+            }
+        });
+
+        // Experience Modal Functions
+        function openExperienceModal(expId) {
+            const exp = PORTFOLIO_DATA.experience.find(e => e.id === expId);
+            if (!exp) return;
+
+            const imagesHTML = exp.images.map(img => `<img src="${img}" alt="${exp.company}">`).join('');
+            document.getElementById('expModalImages').innerHTML = imagesHTML;
+            document.getElementById('expModalPosition').textContent = exp.position;
+            document.getElementById('expModalCompany').textContent = exp.company;
+            document.getElementById('expModalLocation').textContent = exp.location;
+            document.getElementById('expModalYear').textContent = exp.year;
+            document.getElementById('expModalDescription').textContent = exp.detailedDescription;
+
+            const techBadges = exp.technologies.map(tech => 
+                `<span class="modal-tech-badge">${tech}</span>`
+            ).join('');
+            document.getElementById('expModalTechBadges').innerHTML = techBadges;
+
+            document.getElementById('experienceModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeExperienceModal() {
+            document.getElementById('experienceModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close experience modal on outside click
+        document.getElementById('experienceModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeExperienceModal();
+            }
+        });
     </script>
 
 
@@ -2091,3 +2603,27 @@
 </body>
 
 </html>
+
+    <script>
+        // Active navigation on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
