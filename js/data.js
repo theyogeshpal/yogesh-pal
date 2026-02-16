@@ -50,6 +50,7 @@ const PORTFOLIO_DATA = {
         {
             id: 1,
             year: "2025 - Present",
+            companyLogo: "./images/digicoders-logo-circle.png",
             company: "Digicoders Technologies Pvt. Ltd.",
             position: "Dot Net Developer",
             location: "Lucknow, UP",
@@ -57,9 +58,10 @@ const PORTFOLIO_DATA = {
             detailedDescription: "As a Dot Net Developer at Digicoders Technologies, I work on developing enterprise-level web applications using ASP.NET Core MVC framework. My responsibilities include designing and implementing RESTful APIs, database management with MSSQL, creating responsive user interfaces with Bootstrap, and collaborating with cross-functional teams to deliver high-quality software solutions. I have successfully delivered multiple projects.",
             technologies: ["ASP.NET Core", "C#", "MSSQL", "Entity Framework", "Bootstrap"],
             images: [
-                "./images/Yogesh-Pal-Profile.png",
-                "./images/The-Yogesh-Pal.jpg",
-                "./images/Yogesh-Pal-about.png"
+                "./images/P1119568.JPG",
+                "./images/P1119422.JPG",
+                "./images/P1119420.JPG",
+                "./images/P1119415.JPG"
             ]
         }
     ],
@@ -90,6 +92,41 @@ const PORTFOLIO_DATA = {
             image: "./images/li-fi&wi-fi.jpeg",
             side: "left",
             aos: "fade-right"
+        }
+    ],
+    education: [
+        {
+            id: 1,
+            year: "2023 - Present",
+            title: "Polytechnic Diploma in CSE",
+            board: "BTEUP",
+            description: "Currently pursuing Polytechnic Diploma in Computer Science Engineering, focusing on software development, programming, and modern web technologies.",
+            image: "./images/The-Yogesh-Pal.jpg",
+            side: "left",
+            aos: "fade-right",
+            logo: "./images/polytechnic-logo.jpg"
+        },
+        {
+            id: 2,
+            year: "2025",
+            title: "Intermediate",
+            board: "NIOS Board",
+            description: "Completed Intermediate education from National Institute of Open Schooling (NIOS) Board with focus on Science stream.",
+            image: "./images/Yogesh-Pal-Profile.png",
+            side: "right",
+            aos: "fade-left",
+            logo: "./images/nios.jpg"
+        },
+        {
+            id: 3,
+            year: "2023",
+            title: "High School",
+            board: "CBSE Board",
+            description: "Completed High School education from Central Board of Secondary Education (CBSE) with excellent academic performance.",
+            image: "./images/Yogesh-Pal-about.png",
+            side: "left",
+            aos: "fade-right",
+            logo: "./images/cbse.jpg"
         }
     ],
     projects: [

@@ -164,7 +164,7 @@
         }
 
         .dropmenu li a {
-            font-size: 1rem;
+            font-size: 1.2rem;
         }
 
         .intro {
@@ -336,31 +336,43 @@
         }
 
         .developerimg {
-            height: 40vmin;
-            width: 40vmin;
+            height: 45vmin;
+            width: 45vmin;
             object-fit: cover;
             border: 0.5vmin solid rgb(255, 255, 255);
             border-radius: 50%;
+            
         }
 
         .firstring {
-            border: 0.5vmin solid rgb(255, 255, 255);
+            border: 0.5vmin dashed rgb(255, 255, 255);
+            height: 55vmin;
+            width: 55vmin;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotateRing 8s linear infinite;
+        }
+
+        .secondring {
+            border: 0.5vmin dashed rgb(255, 255, 255);
             height: 50vmin;
             width: 50vmin;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
+            animation: rotateRing 8s linear infinite reverse;
         }
 
-        .secondring {
-            border: 0.5vmin solid rgb(255, 255, 255);
-            height: 45vmin;
-            width: 45vmin;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        @keyframes rotateRing {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         .social {
@@ -436,6 +448,7 @@
             gap: 2rem;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
             position: relative;
+            z-index: -1;
         }
 
         .qualification::before {
@@ -478,16 +491,12 @@
         /* Tech Icons Styles */
         .tech-icons-box {
             margin-top: 2rem;
-            padding: 20px;
+            padding: 30px 0;
             background: rgba(255, 255, 255, 0.05);
             border: 2px solid #DF1761;
             border-radius: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
         }
 
         .tech-icons-box:hover {
@@ -495,15 +504,36 @@
             border-color: #fb923c;
         }
 
+        .tech-icons-carousel {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            gap: 3rem;
+        }
+
+        .tech-icons-box:hover .tech-icons-carousel {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
         .tech-icon-item {
-            font-size: 2.5rem;
+            font-size: 4.5rem;
             color: #1c1817;
             transition: all 0.3s ease;
             cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
+            gap: 8px;
+            flex-shrink: 0;
         }
 
         .tech-icon-item i {
@@ -511,11 +541,12 @@
         }
 
         .tech-icon-item span {
-            font-size: 0.7rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: #475569;
             opacity: 0;
             transition: opacity 0.3s ease;
+            white-space: nowrap;
         }
 
         .tech-icon-item:hover {
@@ -1079,7 +1110,7 @@
         .experience-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.3s ease;
         }
 
@@ -1098,6 +1129,11 @@
             margin-bottom: 15px;
             flex-wrap: wrap;
             gap: 10px;
+        }
+
+        .experience-header img {
+            height: 50px;
+            margin-top: 5px;
         }
 
         .experience-title {
@@ -1308,6 +1344,17 @@
             margin-bottom: 10px;
         }
 
+        .education-logo {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #DF1761;
+            padding: 5px;
+            background: white;
+        }
+
         @media (max-width: 991px) {
             .timeline-container::after {
                 left: 31px;
@@ -1416,6 +1463,7 @@
         .about-img-container {
             position: relative;
             padding: 15px;
+            z-index: 1;
         }
 
         .about-img-container img {
@@ -1424,6 +1472,39 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
             transition: all 0.5s ease;
             border: 5px solid #DF1761;
+        }
+
+        .about-image-badge {
+            position: absolute;
+            bottom: -0px;
+            right: -10px;
+            width:  190px;
+            height: 190px;
+            z-index: 999;
+            background: white;
+            border: 4px solid #DF1761;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow:hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+           
+            transition: all 0.4s ease;
+        }
+
+        .about-image-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            border: none;
+            box-shadow: none;
+        }
+
+        .about-img-container:hover .about-image-badge {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 15px 35px rgba(223, 23, 97, 0.3);
         }
 
         .about-img-container:hover img {
@@ -1482,17 +1563,17 @@
             }
 
             .firstring {
-                height: 50vmin;
-                width: 50vmin;
+                height: 60vmin;
+                width:  60vmin;
             }
 
             .secondring {
-                height: 45vmin;
-                width: 45vmin;
+                height: 55vmin;
+                width:  55vmin;
             }
 
             .developerimg {
-                height: 40vmin;
+                height: 60vmin;
             }
 
             .social {
@@ -1707,6 +1788,14 @@
                 padding: 0 10px;
             }
 
+            .about-image-badge {
+                width: 100px;
+                height: 100px;
+                bottom: -20px;
+                right: 0px;
+                border-width: 3px;
+            }
+
             .about-text-container p {
                 font-size: 16px;
                 line-height: 24px;
@@ -1771,13 +1860,25 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .modal-close {
@@ -1876,9 +1977,11 @@
             .modal-image {
                 height: 250px;
             }
+
             .modal-body {
                 padding: 20px;
             }
+
             .modal-title {
                 font-size: 1.5rem;
             }
@@ -1925,7 +2028,7 @@
         .exp-modal-images img {
             width: 100%;
             height: 200px;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 10px;
             cursor: pointer;
             transition: transform 0.3s ease;
@@ -1939,6 +2042,7 @@
             .exp-modal-images {
                 grid-template-columns: 1fr;
             }
+
             .exp-modal-images img {
                 height: 250px;
             }
@@ -1994,19 +2098,22 @@
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav dropmenu text-center mx-auto w-75 justify-content-around">
                                 <li class="nav-item">
-                                    <a class="nav-link text-white fw-bold fs-4" href="#Home">Home</a>
+                                    <a class="nav-link text-white fw-bold" href="#Home">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white fw-bold fs-4" href="#About">About </a>
+                                    <a class="nav-link text-white fw-bold" href="#About">About </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white fw-bold fs-4" href="#Experience">Experience</a>
+                                    <a class="nav-link text-white fw-bold" href="#Education">Education</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white fw-bold fs-4" href="#Project">Projects</a>
+                                    <a class="nav-link text-white fw-bold" href="#Experience">Experience</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white fw-bold fs-4" href="#Contact">Contact</a>
+                                    <a class="nav-link text-white fw-bold" href="#Project">Projects</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white fw-bold" href="#Contact">Contact</a>
                                 </li>
                             </ul>
                         </div>
@@ -2050,7 +2157,7 @@
                     class="col-sm-5 h-sm-100 text-center d-flex justify-content-center align-items-center image-developer text-white">
                     <div class="firstring">
                         <div class="secondring m-0 p-0">
-                            <img class="developerimg p-0 m-0" src="./images/The-Yogesh-Pal.jpg"
+                            <img class="developerimg p-0 m-0" src="./images/P1119420.JPG"
                                 alt="Yogesh Pal - Full Stack Developer Profile Picture">
                         </div>
                     </div>
@@ -2075,7 +2182,10 @@
                 <div class="row align-items-center mt-5">
                     <div class="col-md-5 mb-4 mb-md-0" data-aos="fade-right">
                         <div class="about-img-container">
-                            <img src="./images/Yogesh-Pal-about.png" alt="Yogesh Pal - About Image">
+                            <img src="./images/P1119422.JPG" alt="Yogesh Pal - About Image">
+                            <div class="about-image-badge" data-aos="zoom-in" data-aos-delay="00">
+                                <img src="./images/Yogesh-Pal-about.png" alt="Award Badge">
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-7" data-aos="fade-left">
@@ -2111,25 +2221,6 @@
             </div>
             <div class="row mx-sm-5 d-flex ab-b justify-content-center qualification">
                 <div class="col-sm-5 list">
-                    <p class=" text-black qualification-head text-start"><span class="qualification-span">Education
-                            Qualification :</span></p>
-                    <ul class="p-0 lis mb-sm-5">
-                        <li class="list-unstyled"><i class="fw-bold fa-regular fa-hand-pointer fa-rotate-90"></i>
-                            Pursuing Polytechnic Diploma In <b>CSE.</b> </li>
-                        <li class="list-unstyled"><i class="fw-bold fa-regular fa-hand-pointer fa-rotate-90"></i>
-                            Intermediate From NIOS Board (2025).</li>
-                        <li class="list-unstyled"><i class="fw-bold fa-regular fa-hand-pointer fa-rotate-90"></i> High
-                            School From CBSE Board (2023).</li>
-                    </ul>
-                    <!-- <p class=" text-black qualification-head text-start"><span class="qualification-span">Training and
-                            Certificates :</span></p>
-                    <ul class="p-0 lis mb-sm-5">
-                        <li class="list-unstyled"><i class="fw-bold fa-regular fa-hand-pointer fa-rotate-90"></i>
-                            Completed 15 months <b>Advanced diploma in Information Technology</b> in 2023.</li>
-                        <li class="list-unstyled"><i class="fw-bold fa-regular fa-hand-pointer fa-rotate-90"></i>
-                            Completed 45 Days Summer Training in 2025 during Second year of Polytechnic Diploma.</li>
-                    </ul> -->
-
                     <p class=" text-black qualification-head text-start"><span class="qualification-span">Strengths
                             :</span></p>
                     <ul class="p-0 lis">
@@ -2169,72 +2260,153 @@
                         <li class="list-unstyled"><i class="fw-bold fa-regular fa-hand-pointer fa-rotate-90"></i>
                             Git, GitHub</li>
                     </ul>
-                    <div class="tech-icons-box" data-aos="fade-up">
-                        <div class="tech-icon-item" title="C">
-                            <i class="devicon-c-plain colored"></i>
-                            <span>C</span>
-                        </div>
-                        <div class="tech-icon-item" title="C#">
-                            <i class="devicon-csharp-plain colored"></i>
-                            <span>C#</span>
-                        </div>
-                        <div class="tech-icon-item" title="Java">
-                            <i class="devicon-java-plain colored"></i>
-                            <span>Java</span>
-                        </div>
-                        <div class="tech-icon-item" title="ASP.NET Core">
-                            <i class="devicon-dotnetcore-plain colored"></i>
-                            <span>.NET Core</span>
-                        </div>
-                        <div class="tech-icon-item" title="Spring Boot">
-                            <i class="devicon-spring-plain colored"></i>
-                            <span>Spring</span>
-                        </div>
-                        <div class="tech-icon-item" title="React.js">
-                            <i class="devicon-react-original colored"></i>
-                            <span>React</span>
-                        </div>
-                        <div class="tech-icon-item" title="JavaScript">
-                            <i class="devicon-javascript-plain colored"></i>
-                            <span>JS</span>
-                        </div>
-                        <div class="tech-icon-item" title="HTML5">
-                            <i class="devicon-html5-plain colored"></i>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="tech-icon-item" title="CSS3">
-                            <i class="devicon-css3-plain colored"></i>
-                            <span>CSS3</span>
-                        </div>
-                        <div class="tech-icon-item" title="Tailwind CSS">
-                            <i class="devicon-tailwindcss-original colored"></i>
-                            <span>Tailwind</span>
-                        </div>
-                        <div class="tech-icon-item" title="Bootstrap">
-                            <i class="devicon-bootstrap-plain colored"></i>
-                            <span>Bootstrap</span>
-                        </div>
-                        <div class="tech-icon-item" title="MySQL">
-                            <i class="devicon-mysql-plain colored"></i>
-                            <span>MySQL</span>
-                        </div>
-                        <div class="tech-icon-item" title="MSSQL">
-                            <i class="devicon-microsoftsqlserver-plain colored"></i>
-                            <span>MSSQL</span>
-                        </div>
-                        <div class="tech-icon-item" title="Postman">
-                            <i class="devicon-postman-plain colored"></i>
-                            <span>Postman</span>
-                        </div>
-                        <div class="tech-icon-item" title="Git">
-                            <i class="devicon-git-plain colored"></i>
-                            <span>Git</span>
-                        </div>
-                        <div class="tech-icon-item" title="GitHub">
-                            <i class="devicon-github-original colored"></i>
-                            <span>GitHub</span>
+
+                </div>
+                <div class="col-sm-10 mx-auto">
+                    <div class="tech-icons-box pt-5" data-aos="fade-up">
+                        <div class="tech-icons-carousel">
+                            <div class="tech-icon-item" title="C">
+                                <i class="devicon-c-plain colored"></i>
+                                <span>C</span>
+                            </div>
+                            <div class="tech-icon-item" title="C#">
+                                <i class="devicon-csharp-plain colored"></i>
+                                <span>C#</span>
+                            </div>
+                            <div class="tech-icon-item" title="Java">
+                                <i class="devicon-java-plain colored"></i>
+                                <span>Java</span>
+                            </div>
+                            <div class="tech-icon-item" title="ASP.NET Core">
+                                <i class="devicon-dotnetcore-plain colored"></i>
+                                <span>.NET Core</span>
+                            </div>
+                            <div class="tech-icon-item" title="Spring Boot">
+                                <i class="devicon-spring-plain colored"></i>
+                                <span>Spring</span>
+                            </div>
+                            <div class="tech-icon-item" title="React.js">
+                                <i class="devicon-react-original colored"></i>
+                                <span>React</span>
+                            </div>
+                            <div class="tech-icon-item" title="JavaScript">
+                                <i class="devicon-javascript-plain colored"></i>
+                                <span>JS</span>
+                            </div>
+                            <div class="tech-icon-item" title="HTML5">
+                                <i class="devicon-html5-plain colored"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="tech-icon-item" title="CSS3">
+                                <i class="devicon-css3-plain colored"></i>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="tech-icon-item" title="Tailwind CSS">
+                                <i class="devicon-tailwindcss-original colored"></i>
+                                <span>Tailwind</span>
+                            </div>
+                            <div class="tech-icon-item" title="Bootstrap">
+                                <i class="devicon-bootstrap-plain colored"></i>
+                                <span>Bootstrap</span>
+                            </div>
+                            <div class="tech-icon-item" title="MySQL">
+                                <i class="devicon-mysql-plain colored"></i>
+                                <span>MySQL</span>
+                            </div>
+                            <div class="tech-icon-item" title="MSSQL">
+                                <i class="devicon-microsoftsqlserver-plain colored"></i>
+                                <span>MSSQL</span>
+                            </div>
+                            <div class="tech-icon-item" title="Postman">
+                                <i class="devicon-postman-plain colored"></i>
+                                <span>Postman</span>
+                            </div>
+                            <div class="tech-icon-item" title="Git">
+                                <i class="devicon-git-plain colored"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="tech-icon-item" title="GitHub">
+                                <i class="devicon-github-original colored"></i>
+                                <span>GitHub</span>
+                            </div>
+                            <!-- Duplicate for seamless loop -->
+                            <div class="tech-icon-item" title="C">
+                                <i class="devicon-c-plain colored"></i>
+                                <span>C</span>
+                            </div>
+                            <div class="tech-icon-item" title="C#">
+                                <i class="devicon-csharp-plain colored"></i>
+                                <span>C#</span>
+                            </div>
+                            <div class="tech-icon-item" title="Java">
+                                <i class="devicon-java-plain colored"></i>
+                                <span>Java</span>
+                            </div>
+                            <div class="tech-icon-item" title="ASP.NET Core">
+                                <i class="devicon-dotnetcore-plain colored"></i>
+                                <span>.NET Core</span>
+                            </div>
+                            <div class="tech-icon-item" title="Spring Boot">
+                                <i class="devicon-spring-plain colored"></i>
+                                <span>Spring</span>
+                            </div>
+                            <div class="tech-icon-item" title="React.js">
+                                <i class="devicon-react-original colored"></i>
+                                <span>React</span>
+                            </div>
+                            <div class="tech-icon-item" title="JavaScript">
+                                <i class="devicon-javascript-plain colored"></i>
+                                <span>JS</span>
+                            </div>
+                            <div class="tech-icon-item" title="HTML5">
+                                <i class="devicon-html5-plain colored"></i>
+                                <span>HTML5</span>
+                            </div>
+                            <div class="tech-icon-item" title="CSS3">
+                                <i class="devicon-css3-plain colored"></i>
+                                <span>CSS3</span>
+                            </div>
+                            <div class="tech-icon-item" title="Tailwind CSS">
+                                <i class="devicon-tailwindcss-original colored"></i>
+                                <span>Tailwind</span>
+                            </div>
+                            <div class="tech-icon-item" title="Bootstrap">
+                                <i class="devicon-bootstrap-plain colored"></i>
+                                <span>Bootstrap</span>
+                            </div>
+                            <div class="tech-icon-item" title="MySQL">
+                                <i class="devicon-mysql-plain colored"></i>
+                                <span>MySQL</span>
+                            </div>
+                            <div class="tech-icon-item" title="MSSQL">
+                                <i class="devicon-microsoftsqlserver-plain colored"></i>
+                                <span>MSSQL</span>
+                            </div>
+                            <div class="tech-icon-item" title="Postman">
+                                <i class="devicon-postman-plain colored"></i>
+                                <span>Postman</span>
+                            </div>
+                            <div class="tech-icon-item" title="Git">
+                                <i class="devicon-git-plain colored"></i>
+                                <span>Git</span>
+                            </div>
+                            <div class="tech-icon-item" title="GitHub">
+                                <i class="devicon-github-original colored"></i>
+                                <span>GitHub</span>
+                            </div>
                         </div>
                     </div>
+                </div>
+        </section>
+
+        <!-- Education Timeline Section -->
+        <section id="Education" class="cert-timeline"
+            style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+            <div class="container">
+                <h2 class="about text-center" style="padding-top: 0;">Education Qualification</h2>
+                <hr class="hr mb-5">
+                <div class="experience-container" id="education-container" style="max-width: 900px;">
+                    <!-- Education items will be loaded here -->
                 </div>
             </div>
         </section>
@@ -2396,7 +2568,8 @@
             <div class="modal-body">
                 <h2 id="expModalPosition" class="modal-title"></h2>
                 <p id="expModalCompany" class="modal-category"></p>
-                <p><i class="fa-solid fa-location-dot" style="color: #DF1761;"></i> <span id="expModalLocation"></span> | <i class="fa-solid fa-calendar" style="color: #DF1761;"></i> <span id="expModalYear"></span></p>
+                <p><i class="fa-solid fa-location-dot" style="color: #DF1761;"></i> <span id="expModalLocation"></span>
+                    | <i class="fa-solid fa-calendar" style="color: #DF1761;"></i> <span id="expModalYear"></span></p>
                 <p id="expModalDescription" class="modal-description"></p>
                 <div id="expModalTechBadges" class="modal-tech-badges"></div>
             </div>
@@ -2475,12 +2648,14 @@
                     const techBadges = exp.technologies.map(tech => `<span class="experience-tech-badge">${tech}</span>`).join('');
                     experienceContainer.innerHTML += `
                         <div class="experience-card" data-aos="fade-up" onclick="openExperienceModal(${exp.id})" style="cursor: pointer;">
-                            <div class="experience-image">
+                            <div class="experience-image" >
                                 <img src="${exp.images[0]}" alt="${exp.company}">
                             </div>
                             <div class="experience-content">
                                 <div class="experience-header">
+                                    <img src="${exp.companyLogo}" />
                                     <div class="experience-title">
+
                                         <h3>${exp.position}</h3>
                                         <div class="experience-company">${exp.company}</div>
                                     </div>
@@ -2514,6 +2689,29 @@
                 });
             }
 
+            // Render Education Timeline
+            const educationContainer = document.getElementById('education-container');
+            if (educationContainer && PORTFOLIO_DATA.education) {
+                PORTFOLIO_DATA.education.forEach(item => {
+                    educationContainer.innerHTML += `
+                        <div class="experience-card" data-aos="fade-up" style="cursor: default;">
+                            <div class="experience-content" style="width: 100%;">
+
+                                <div class="experience-header">
+                                    <img src="${item.logo}" alt="${item.board}" class="education-logo">
+                                    <div class="experience-title">
+                                        <h3>${item.title}</h3>
+                                        <span class="experience-tech-badge" style="margin-top: 8px;">${item.board}</span>
+                                    </div>
+                                    <span class="experience-year">${item.year}</span>
+                                </div>
+                                <p class="experience-description">${item.description}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
             AOS.refresh();
         }
 
@@ -2532,7 +2730,7 @@
             document.getElementById('modalDescription').textContent = project.description;
             document.getElementById('modalVisitBtn').href = project.link;
 
-            const techBadges = project.technologies.split(',').map(tech => 
+            const techBadges = project.technologies.split(',').map(tech =>
                 `<span class="modal-tech-badge">${tech.trim()}</span>`
             ).join('');
             document.getElementById('modalTechBadges').innerHTML = techBadges;
@@ -2547,14 +2745,14 @@
         }
 
         // Close modal on outside click
-        document.getElementById('projectModal').addEventListener('click', function(e) {
+        document.getElementById('projectModal').addEventListener('click', function (e) {
             if (e.target === this) {
                 closeProjectModal();
             }
         });
 
         // Close modal on ESC key
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeProjectModal();
                 closeExperienceModal();
@@ -2574,7 +2772,7 @@
             document.getElementById('expModalYear').textContent = exp.year;
             document.getElementById('expModalDescription').textContent = exp.detailedDescription;
 
-            const techBadges = exp.technologies.map(tech => 
+            const techBadges = exp.technologies.map(tech =>
                 `<span class="modal-tech-badge">${tech}</span>`
             ).join('');
             document.getElementById('expModalTechBadges').innerHTML = techBadges;
@@ -2589,7 +2787,7 @@
         }
 
         // Close experience modal on outside click
-        document.getElementById('experienceModal').addEventListener('click', function(e) {
+        document.getElementById('experienceModal').addEventListener('click', function (e) {
             if (e.target === this) {
                 closeExperienceModal();
             }
@@ -2604,26 +2802,26 @@
 
 </html>
 
-    <script>
-        // Active navigation on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
+<script>
+    // Active navigation on scroll
+    window.addEventListener('scroll', () => {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
         });
-    </script>
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+</script>
