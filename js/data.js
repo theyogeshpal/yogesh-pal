@@ -19,10 +19,9 @@ const PORTFOLIO_DATA = {
             { name: 'Github', url: 'https://github.com/theyogeshpal', icon: 'fa-brands fa-github', color: '#333' },
             { name: 'LinkedIn', url: 'https://www.linkedin.com/in/pal-yogesh', icon: 'fa-brands fa-linkedin-in', color: '#0077b5' },
             { name: 'Email', url: 'mailto:yogeshpal1309@gmail.com', icon: 'fa-solid fa-envelope', color: '#ea4335' },
-            { name: 'Gitlab', url: 'https://gitlab.com', icon: 'fa-brands fa-gitlab', color: '#fca326' },
+            { name: 'Instagram', url: 'https://gitlab.com', icon: 'fa-brands fa-instagram', color: '#4d43a9' },
             { name: 'Facebook', url: 'https://facebook.com', icon: 'fa-brands fa-facebook-f', color: '#3b5998' },
-            { name: 'Medium', url: 'https://medium.com', icon: 'fa-brands fa-medium', color: '#000' },
-            { name: 'StackOverflow', url: 'https://stackoverflow.com', icon: 'fa-brands fa-stack-overflow', color: '#f48024' }
+            { name: 'StackOverflow', url: 'https://stackoverflow.com/users/32329246/yogesh-pal', icon: 'fa-brands fa-stack-overflow', color: '#f48024' }
         ]
     },
     about: {

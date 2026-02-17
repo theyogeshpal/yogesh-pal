@@ -2884,7 +2884,7 @@
     </div>
 
     <!-- Back to Top Button -->
-    <button id="backToTop" title="Back to Top">
+    <button id="backToTop" title="Back to Top" onclick="scrollToTop()">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
 
@@ -3194,7 +3194,7 @@
 
         // Back to Top Button
         const backToTop = document.getElementById('backToTop');
-        if (window.scrollY > 300) {
+        if (window.scrollY > 500) {
             backToTop.classList.add('show');
         } else {
             backToTop.classList.remove('show');
