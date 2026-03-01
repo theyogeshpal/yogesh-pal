@@ -143,6 +143,15 @@ const PORTFOLIO_DATA = {
     projects: [
         {
             id: 1,
+            title: "Core Archive",
+            category: "Digital Library (Website + Admin Panel)",
+            link: "https://core-archive.netlify.app/",
+            image: "./images/image.png",
+            technologies: "React, Express, MongoDB, NodeJS, TailwindCSS",
+            description: "A comprehensive parking management system with multi-level access control. Features include real-time parking slot monitoring, automated billing, user management, and detailed analytics dashboard for administrators."
+        },
+        {
+            id: 2,
             title: "AuraPark",
             category: "Parking Management System (Website + Admin + Super Admin )",
             link: "https://aurapark.runasp.net/",
@@ -151,7 +160,7 @@ const PORTFOLIO_DATA = {
             description: "A comprehensive parking management system with multi-level access control. Features include real-time parking slot monitoring, automated billing, user management, and detailed analytics dashboard for administrators."
         },
         {
-            id: 2,
+            id: 3,
             title: "Syntax Academy",
             category: "Student Management System (Website + Admin Panel)",
             link: "https://syntax-academy.runasp.net/",
@@ -160,7 +169,7 @@ const PORTFOLIO_DATA = {
             description: "Complete student management solution with attendance tracking, grade management, course enrollment, and parent-teacher communication portal. Built with Entity Framework for robust data management."
         },
         {
-            id: 3,
+            id: 4,
             title: "RiskFlight",
             category: "Library Management System",
             link: "#",
@@ -169,7 +178,7 @@ const PORTFOLIO_DATA = {
             description: "Digital library management system featuring book cataloging, member management, issue/return tracking, fine calculation, and comprehensive reporting. Developed using ADO.NET for optimized database operations."
         },
         {
-            id: 4,
+            id: 5,
             title: "Nurture Nest",
             category: "Non Government Organization (Website)",
             link: "https://nurture-nest-foundation.netlify.app/",
@@ -178,7 +187,7 @@ const PORTFOLIO_DATA = {
             description: "Responsive NGO website showcasing social initiatives, donation campaigns, volunteer programs, and impact stories. Features include event calendar, gallery, and contact forms for community engagement."
         },
         {
-            id: 5,
+            id: 6,
             title: "Amber Archives",
             category: "E-Commerce Website (Website)",
             link: "https://amber-ecommerce.netlify.app/",
@@ -187,7 +196,7 @@ const PORTFOLIO_DATA = {
             description: "Modern e-commerce platform with product catalog, shopping cart, wishlist functionality, and responsive design. Built with React.js for dynamic user experience and Tailwind CSS for sleek styling."
         },
         {
-            id: 6,
+            id: 7,
             title: "Er. Yogesh Pal",
             category: "Personal Portfolio (Website)",
             link: "#",
@@ -196,7 +205,7 @@ const PORTFOLIO_DATA = {
             description: "Professional portfolio website showcasing projects, skills, certifications, and achievements. Features smooth animations, responsive design, and interactive elements to highlight technical expertise."
         },
         {
-            id: 7,
+            id: 8,
             title: "Fanta",
             category: "Built Using GSAP (Webpage)",
             link: "https://fanta-yogesh.netlify.app/",
@@ -205,7 +214,7 @@ const PORTFOLIO_DATA = {
             description: "Creative animated webpage demonstrating advanced GSAP animation techniques. Features scroll-triggered animations, smooth transitions, and interactive elements for an engaging user experience."
         },
         {
-            id: 8,
+            id: 9,
             title: "Dream Places",
             category: "Trip Planner (Website)",
             link: "#",
@@ -214,7 +223,7 @@ const PORTFOLIO_DATA = {
             description: "Travel planning website featuring destination guides, itinerary builder, budget calculator, and booking information. Designed with responsive layouts for seamless browsing across all devices."
         },
         {
-            id: 9,
+            id: 10,
             title: "Calculator",
             category: "Built Using Javascript (Mini Project)",
             link: "https://theyogeshpal.github.io/calculator-yogesh-pal/",
