@@ -50,7 +50,7 @@ const PORTFOLIO_DATA = {
             "Rest API's, Postman",
             'ASP.NET Core MVC, Entity Framework, MSSQL',
             'Spring Boot, JSP, MySQL, Java web development',
-            'React.js, React Router, Axios',
+            'React.js, Express.js, MongoDb, Node.js',
             'AOS, Animate.CSS, GSAP',
             'JQuery, JSON, AJAX, Bootstrap, Tailwind CSS',
             'HTML, HTML-5, CSS, CSS-3, JavaScript',
