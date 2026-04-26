@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | Yogesh Pal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Premium Loader Styles */
+        #loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #0f172a;
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.6s ease, visibility 0.6s;
+        }
+
+        .loader-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader-ring {
+            width: 120px;
+            height: 120px;
+            border: 4px solid transparent;
+            border-top: 4px solid #6366f1;
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+
+        .loader-ring::after {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border: 4px solid transparent;
+            border-top: 4px solid #ec4899;
+            border-radius: 50%;
+            animation: spin 2s linear infinite;
+        }
+
+        .loader-pulse {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #6366f1 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 1.5s ease-out infinite;
+            opacity: 0.5;
+        }
+
+        .loader-text {
+            margin-top: 30px;
+            color: #fff;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            animation: fadeInOut 1.5s infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.8; }
+            100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        #loader-wrapper.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --primary-light: #818cf8;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --star-color: #fbbf24;
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #f1f5f9;
+            color: var(--text-main);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+        }
+
+        /* Navbar/Breadcrumb */
+        .top-nav {
+            background: white;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .breadcrumb {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Product Main Section */
+        .product-section {
+            padding: 40px 0;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* Image Gallery Styling */
+        .image-gallery-container {
+            padding: 20px;
+            background: #f8fafc;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-image-wrapper {
+            width: 100%;
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+
+        .main-image {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .main-image-wrapper:hover .main-image {
+            transform: scale(1.05);
+        }
+
+        /* Gallery Thumbnails */
+        .thumbnail-gallery {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+
+        .thumb-img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+
+        .thumb-img:hover,
+        .thumb-img.active {
+            border-color: var(--primary-color);
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        /* Product Info Styling */
+        .product-info {
+            padding: 40px;
+        }
+
+        .badge-category {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-color);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: var(--dark-bg);
+            letter-spacing: -1px;
+        }
+
+        .rating-summary {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .stars-static {
+            color: var(--star-color);
+            font-size: 1.1rem;
+        }
+
+        .review-count {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            text-decoration: line-through;
+        }
+
+        .short-desc {
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 35px;
+            font-size: 1.05rem;
+        }
+
+        /* Action Buttons */
+        .action-btns {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .btn-buy {
+            padding: 16px 40px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: var(--dark-bg);
+            color: white;
+            border: none;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .btn-buy:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.3);
+            color: white;
+        }
+
+        .btn-cart {
+            padding: 16px 20px;
+            border-radius: 12px;
+            background: white;
+            color: var(--dark-bg);
+            border: 2px solid var(--dark-bg);
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cart:hover {
+            background: #f1f5f9;
+        }
+
+        /* Features List */
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .features-list i {
+            color: #22c55e;
+            font-size: 1.1rem;
+        }
+
+        /* Tabs Section */
+        .details-tabs {
+            margin-top: 60px;
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-pills .nav-link {
+            color: var(--text-muted);
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-pills .nav-link.active {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+        }
+
+        .tab-content {
+            padding-top: 40px;
+        }
+
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        .tech-item {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border-color: var(--primary-color);
+        }
+
+        /* Rating Interactive */
+        .rating-interactive {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .stars-input {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            gap: 10px;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .star-in {
+            cursor: pointer;
+            color: #d1d5db;
+            transition: all 0.2s ease;
+        }
+
+        .star-in:hover,
+        .star-in:hover~.star-in,
+        .star-in.active,
+        .star-in.active~.star-in {
+            color: var(--star-color);
+            transform: scale(1.1);
+        }
+
+        /* Responsive Improvements */
+        @media (max-width: 991px) {
+            .product-info {
+                padding: 30px;
+            }
+
+            .product-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-info {
+                padding: 25px 20px;
+            }
+
+            .product-title {
+                font-size: 1.8rem;
+                letter-spacing: -0.5px;
+            }
+
+            .image-gallery-container {
+                padding: 15px;
+            }
+
+            .main-image-wrapper {
+                border-radius: 12px;
+            }
+
+            .details-tabs {
+                margin-top: 30px;
+                padding: 25px 15px;
+                border-radius: 16px;
+            }
+
+            .nav-pills .nav-link {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+
+            .tech-stack-grid {
+                grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+                gap: 10px;
+            }
+
+            .btn-buy {
+                padding: 14px 20px;
+                font-size: 1rem;
+            }
+
+            .product-price {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .action-btns {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .btn-buy,
+            .btn-cart {
+                width: 100%;
+                flex: none;
+            }
+
+            .top-nav {
+                padding: 10px 0;
+            }
+
+            .breadcrumb {
+                font-size: 0.8rem;
+            }
+
+            .product-title {
+                font-size: 1.6rem;
+            }
+
+            .stars-input {
+                font-size: 2rem;
+                gap: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Premium Loader Overlay -->
+    <div id="loader-wrapper">
+        <div class="loader-content">
+            <div class="loader-ring"></div>
+            <div class="loader-pulse"></div>
+            <p class="loader-text">Loading Project Details...</p>
+        </div>
+    </div>
+    <nav class="top-nav">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="index.html#Project">Projects</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="breadcrumbTitle">Project Detail</li>
+                </ol>
+            </nav>
+        </div>
+    </nav>
+
+    <main class="product-section container">
+        <div class="product-card">
+            <div class="row g-0">
+                <!-- Left: Image Gallery -->
+                <div class="col-lg-6">
+                    <div class="image-gallery-container">
+                        <div class="main-image-wrapper">
+                            <img id="mainProjImg" src="" alt="Project Image" class="main-image">
+                        </div>
+                        <div id="projThumbnails" class="thumbnail-gallery mt-3"></div>
+                    </div>
+                </div>
+
+                <!-- Right: Product Info -->
+                <div class="col-lg-6">
+                    <div class="product-info">
+                        <span id="projCategory" class="badge-category">Category</span>
+                        <h1 id="projTitle" class="product-title">Loading Project...</h1>
+
+                        <div class="rating-summary">
+                            <div id="projStars" class="stars-static">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star-half-stroke"></i>
+                            </div>
+                            <span class="review-count">(12 People Rated This Project)</span>
+                        </div>
+
+
+                        <p id="projShortDesc" class="short-desc"></p>
+
+                        <ul class="features-list mb-4">
+                            <li><i class="fa-solid fa-circle-check"></i> High-performance architecture</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Fully Responsive Design</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Modern UI/UX Standards</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Clean & Maintainable Code</li>
+                        </ul>
+
+                        <div class="action-btns">
+                            <a id="liveDemoBtn" href="#" target="_blank" class="btn-buy">
+                                <i class="fa-solid fa-rocket"></i> LIVE PREVIEW
+                            </a>
+                            <button class="btn-cart"
+                                onclick="window.scrollTo({top: document.getElementById('details-tabs').offsetTop - 100, behavior: 'smooth'})">
+                                <i class="fa-solid fa-code"></i> SOURCE CODE
+                            </button>
+                        </div>
+
+                        <div class="product-meta mt-4 pt-4 border-top">
+
+                            <p class="mb-0"><strong>Tags:</strong> <span id="projTags" class="text-muted">Web,
+                                    Full-Stack, React</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Details Tabs -->
+        <div class="details-tabs" id="details-tabs">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="mb-4">Rate the Project</h4>
+                    <div class="rating-interactive">
+                        <p class="text-center fw-bold mb-3">Your Rating</p>
+                        <div class="stars-input">
+                            <i class="fa-solid fa-star star-in" data-val="5"></i>
+                            <i class="fa-solid fa-star star-in" data-val="4"></i>
+                            <i class="fa-solid fa-star star-in" data-val="3"></i>
+                            <i class="fa-solid fa-star star-in" data-val="2"></i>
+                            <i class="fa-solid fa-star star-in" data-val="1"></i>
+                        </div>
+                        <div id="rateFeedback" class="text-center text-success fw-bold" style="display:none;">
+                            Thank you! Your review has been submitted.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 border-start ps-md-5">
+                    <h4 class="mb-4">Overall Stats</h4>
+                    <div id="stats-container">
+                        {/* Bars will be injected here */}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-bottom bg-dark py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0 text-light" style="opacity: 0.8; font-weight: 500;">
+                © 2026 Yogesh Pal Portfolio • Made with ❤️ by Yogesh Pal • All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        const BACKEND_URL = 'http://localhost:5000';
+
+        function getImageUrl(url) {
+            if (!url) return '';
+            if (url.startsWith('http')) return url;
+            return url;
+        }
+
+        AOS.init({ duration: 800, once: true });
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const projectId = urlParams.get('id');
+
+        async function loadProject() {
+            document.body.style.overflow = 'hidden';
+            if (!projectId) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            try {
+                const response = await fetch(`${BACKEND_URL}/api/portfolio-data`);
+                const data = await response.json();
+                const project = data.projects.find(p => p._id === projectId);
+
+                if (!project) {
+                    alert('Project not found!');
+                    window.location.href = 'index.html';
+                    return;
+                }
+
+                document.title = project.title + " | Product Detail";
+                document.getElementById('breadcrumbTitle').textContent = project.title;
+                document.getElementById('projTitle').textContent = project.title;
+                document.getElementById('projCategory').textContent = project.category;
+                document.getElementById('mainProjImg').src = getImageUrl(project.images[0]);
+                document.getElementById('projShortDesc').textContent = project.description;
+                document.getElementById('liveDemoBtn').href = project.link;
+                document.getElementById('projTags').textContent = Array.isArray(project.technologies) ? project.technologies.join(', ') : project.technologies;
+
+                document.querySelector('.review-count').textContent = `(${project.ratings?.length || 0} People Rated This Project)`;
+
+                const thumbContainer = document.getElementById('projThumbnails');
+                if (project.images && project.images.length > 1) {
+                    project.images.forEach((img, index) => {
+                        const thumb = document.createElement('img');
+                        thumb.src = getImageUrl(img);
+                        thumb.className = `thumb-img ${index === 0 ? 'active' : ''}`;
+                        thumb.onclick = () => {
+                            document.getElementById('mainProjImg').src = getImageUrl(img);
+                            document.querySelectorAll('.thumb-img').forEach(t => t.classList.remove('active'));
+                            thumb.classList.add('active');
+                        };
+                        thumbContainer.appendChild(thumb);
+                    });
+                }
+
+                updateStats(project);
+
+                // Hide Loader
+                setTimeout(() => {
+                    document.getElementById('loader-wrapper').classList.add('loaded');
+                    document.body.style.overflow = 'auto';
+                }, 500);
+            } catch (err) {
+                console.error('Error fetching project:', err);
+            }
+        }
+
+        function renderStars(rating) {
+            const container = document.getElementById('projStars');
+            if (!container) return;
+
+            let html = '';
+            const fullStars = Math.floor(rating);
+            const hasHalf = rating % 1 >= 0.5;
+
+            for (let i = 1; i <= 5; i++) {
+                if (i <= fullStars) {
+                    html += '<i class="fa-solid fa-star"></i>';
+                } else if (i === fullStars + 1 && hasHalf) {
+                    html += '<i class="fa-solid fa-star-half-stroke"></i>';
+                } else {
+                    html += '<i class="fa-regular fa-star"></i>';
+                }
+            }
+            container.innerHTML = html;
+        }
+
+        function updateStats(project) {
+            renderStars(project.averageRating || 0);
+            const statsContainer = document.getElementById('stats-container');
+            if (!statsContainer) return;
+
+            const total = project.ratings?.length || 0;
+            const counts = [0, 0, 0, 0, 0]; // 1 to 5
+            project.ratings?.forEach(r => counts[r - 1]++);
+
+            const colors = ['bg-danger', 'bg-warning', 'bg-info', 'bg-primary', 'bg-success'];
+            let html = '';
+
+            for (let i = 4; i >= 0; i--) {
+                const percent = total === 0 ? 0 : Math.round((counts[i] / total) * 100);
+                html += `
+                    <div class="mb-4">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>${i + 1} Star</span>
+                            <span>${percent}%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar ${colors[i]}" style="width: ${percent}%"></div>
+                        </div>
+                    </div>
+                `;
+            }
+            statsContainer.innerHTML = html;
+        }
+
+        // Rating logic
+        const stars = document.querySelectorAll('.star-in');
+        const feedback = document.getElementById('rateFeedback');
+
+        stars.forEach(star => {
+            star.addEventListener('click', async function () {
+                if (localStorage.getItem(`rated_${projectId}`)) {
+                    alert('You have already rated this project!');
+                    return;
+                }
+
+                const val = parseInt(this.getAttribute('data-val'));
+
+                try {
+                    const response = await fetch(`${BACKEND_URL}/api/projects/${projectId}/rate`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ rating: val })
+                    });
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        stars.forEach(s => s.classList.remove('active'));
+                        this.classList.add('active');
+                        let sibling = this.nextElementSibling;
+                        while (sibling) {
+                            sibling.classList.add('active');
+                            sibling = sibling.nextElementSibling;
+                        }
+
+                        feedback.style.display = 'block';
+                        feedback.textContent = `Thank you! Your review has been submitted.`;
+                        localStorage.setItem(`rated_${projectId}`, val);
+
+                        // Update UI stats
+                        document.querySelector('.review-count').textContent = `(${result.ratings.length} People Rated This Project)`;
+                        updateStats(result);
+                    }
+                } catch (err) {
+                    console.error('Rating Error:', err);
+                }
+            });
+        });
+
+        const savedRating = localStorage.getItem(`rating_${projectId}`);
+        if (savedRating) {
+            const target = document.querySelector(`.star-in[data-val="${savedRating}"]`);
+            if (target) target.click();
+        }
+
+        window.onload = loadProject;
+    </script>
+</body>
+
+</html>

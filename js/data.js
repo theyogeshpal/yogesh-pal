@@ -146,7 +146,7 @@ const PORTFOLIO_DATA = {
             title: "Core Archive",
             category: "Digital Library (Website + Admin Panel)",
             link: "https://core-archive.netlify.app/",
-            image: "./images/image.png",
+            images: ["./images/image.png"],
             technologies: "React, Express, MongoDB, NodeJS, TailwindCSS",
             description: "A comprehensive parking management system with multi-level access control. Features include real-time parking slot monitoring, automated billing, user management, and detailed analytics dashboard for administrators."
         },
@@ -155,7 +155,7 @@ const PORTFOLIO_DATA = {
             title: "AuraPark",
             category: "Parking Management System (Website + Admin + Super Admin )",
             link: "https://aurapark.runasp.net/",
-            image: "./images/Screenshot 2026-01-16 134513.png",
+            images: ["./images/Screenshot 2026-01-16 134513.png"],
             technologies: "ASP.NET Core, C#, MSSQL, Bootstrap",
             description: "A comprehensive parking management system with multi-level access control. Features include real-time parking slot monitoring, automated billing, user management, and detailed analytics dashboard for administrators."
         },
@@ -164,7 +164,7 @@ const PORTFOLIO_DATA = {
             title: "Syntax Academy",
             category: "Student Management System (Website + Admin Panel)",
             link: "https://syntax-academy.runasp.net/",
-            image: "./images/syntax-academy.png",
+            images: ["./images/syntax-academy.png"],
             technologies: "ASP.NET Core, C#, Entity Framework",
             description: "Complete student management solution with attendance tracking, grade management, course enrollment, and parent-teacher communication portal. Built with Entity Framework for robust data management."
         },
@@ -173,7 +173,7 @@ const PORTFOLIO_DATA = {
             title: "RiskFlight",
             category: "Library Management System",
             link: "#",
-            image: "./images/LMS.png",
+            images: ["./images/LMS.png"],
             technologies: "ASP.NET Core, C#, MSSQL, ADO.Net",
             description: "Digital library management system featuring book cataloging, member management, issue/return tracking, fine calculation, and comprehensive reporting. Developed using ADO.NET for optimized database operations."
         },
@@ -182,7 +182,7 @@ const PORTFOLIO_DATA = {
             title: "Nurture Nest",
             category: "Non Government Organization (Website)",
             link: "https://nurture-nest-foundation.netlify.app/",
-            image: "./images/nurture-nest.png",
+            images: ["./images/nurture-nest.png"],
             technologies: "HTML, CSS, JavaScript",
             description: "Responsive NGO website showcasing social initiatives, donation campaigns, volunteer programs, and impact stories. Features include event calendar, gallery, and contact forms for community engagement."
         },
@@ -191,7 +191,7 @@ const PORTFOLIO_DATA = {
             title: "Amber Archives",
             category: "E-Commerce Website (Website)",
             link: "https://amber-ecommerce.netlify.app/",
-            image: "./images/Amber-Archives.png",
+            images: ["./images/Amber-Archives.png"],
             technologies: "React.js, Tailwind CSS",
             description: "Modern e-commerce platform with product catalog, shopping cart, wishlist functionality, and responsive design. Built with React.js for dynamic user experience and Tailwind CSS for sleek styling."
         },
@@ -200,7 +200,7 @@ const PORTFOLIO_DATA = {
             title: "Er. Yogesh Pal",
             category: "Personal Portfolio (Website)",
             link: "#",
-            image: "./images/Yogesh-pal.png",
+            images: ["./images/Yogesh-pal.png"],
             technologies: "HTML, CSS, JS, Bootstrap",
             description: "Professional portfolio website showcasing projects, skills, certifications, and achievements. Features smooth animations, responsive design, and interactive elements to highlight technical expertise."
         },
@@ -209,7 +209,7 @@ const PORTFOLIO_DATA = {
             title: "Fanta",
             category: "Built Using GSAP (Webpage)",
             link: "https://fanta-yogesh.netlify.app/",
-            image: "./images/fanta.png",
+            images: ["./images/fanta.png"],
             technologies: "GSAP, HTML, CSS",
             description: "Creative animated webpage demonstrating advanced GSAP animation techniques. Features scroll-triggered animations, smooth transitions, and interactive elements for an engaging user experience."
         },
@@ -218,7 +218,7 @@ const PORTFOLIO_DATA = {
             title: "Dream Places",
             category: "Trip Planner (Website)",
             link: "#",
-            image: "./images/travel-website.png",
+            images: ["./images/travel-website.png"],
             technologies: "HTML, CSS, JavaScript",
             description: "Travel planning website featuring destination guides, itinerary builder, budget calculator, and booking information. Designed with responsive layouts for seamless browsing across all devices."
         },
@@ -227,7 +227,7 @@ const PORTFOLIO_DATA = {
             title: "Calculator",
             category: "Built Using Javascript (Mini Project)",
             link: "https://theyogeshpal.github.io/calculator-yogesh-pal/",
-            image: "./images/calculator.png",
+            images: ["./images/calculator.png"],
             technologies: "JavaScript, HTML, CSS",
             description: "Functional calculator application with basic arithmetic operations, clear functionality, and keyboard support. Built with vanilla JavaScript to demonstrate core programming concepts."
         }
